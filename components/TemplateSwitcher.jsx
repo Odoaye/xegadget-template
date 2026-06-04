@@ -37,11 +37,11 @@ const TEMPLATES = [
   },
 ];
 
-export function TemplateSwitcher({ currentTemplate, onTemplateChange }) {
+export function TemplateSwitcher({ active, onChange }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleChange = (t) => {
-    onTemplateChange(t);
+    onChange?.(t);
     setIsOpen(false);
   };
 
@@ -90,7 +90,7 @@ export function TemplateSwitcher({ currentTemplate, onTemplateChange }) {
 
               <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-2 sm:space-y-3">
                 {TEMPLATES.map((t) => {
-                  const isActive = currentTemplate === t.id;
+                  const isActive = active === t.id;
                   return (
                     <button
                       key={t.id}
