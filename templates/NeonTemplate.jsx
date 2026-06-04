@@ -57,7 +57,7 @@ export function NeonTemplate() {
     <div className="min-h-screen bg-[#141414] text-[#f0f0f0]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
 
       {/* Toasts */}
-      <div className="fixed top-4 left-1/2 -translate-x-1/2 z-[300] flex flex-col gap-2 items-center pointer-events-none">
+      <div className="fixed top-6 md:top-20 left-1/2 -translate-x-1/2 z-[300] flex flex-col gap-2 items-center pointer-events-none">
         <AnimatePresence>
           {toasts.map(t => (
             <motion.div key={t.id} initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
@@ -83,7 +83,7 @@ export function NeonTemplate() {
       </div>
 
       {/* Nav */}
-      <nav className="fixed top-[40px] left-0 right-0 z-40 bg-[#141414]/95 backdrop-blur-sm border-b-4 border-[#b4ff00]">
+      <nav className="fixed top-0 left-0 right-0 z-40 bg-[#141414]/95 backdrop-blur-sm border-b-4 border-[#b4ff00]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
           <div className="flex flex-col cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <span className="text-xl sm:text-2xl font-black italic text-[#b4ff00]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>XE_DROP</span>
@@ -176,13 +176,13 @@ export function NeonTemplate() {
       </AnimatePresence>
 
       {/* Hero */}
-      <section id="neon-hero" className="pt-[96px] sm:pt-[104px] min-h-screen flex items-center relative overflow-hidden bg-[#141414]">
+      <section id="neon-hero" className="pt-[96px] sm:pt-[104px] min-h-[80vh] flex items-center relative overflow-hidden bg-[#141414]">
         <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
           style={{ backgroundImage: "linear-gradient(#b4ff00 1px, transparent 1px), linear-gradient(90deg, #b4ff00 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
         <div className="absolute top-1/4 right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-[#b4ff00] rounded-full blur-[120px] opacity-10 pointer-events-none" />
         <div className="absolute bottom-1/4 left-1/4 w-48 sm:w-64 h-48 sm:h-64 bg-[#ff3c6e] rounded-full blur-[100px] opacity-10 pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 relative z-10 w-full">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 relative z-10 w-full">
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <div className="inline-block bg-[#ff3c6e] text-white font-black uppercase text-xs sm:text-sm px-3 sm:px-4 py-1.5 border-4 border-black mb-4 sm:mb-6 rotate-[-1deg]">
               🔥 Season Drop 2026

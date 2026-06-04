@@ -38,7 +38,7 @@ export function VoltTemplate() {
     <div className="min-h-screen bg-white text-zinc-950" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
 
       {/* Toasts */}
-      <div className="fixed top-4 right-4 z-[300] flex flex-col gap-2 pointer-events-none">
+      <div className="fixed top-6 md:top-20 right-4 z-[300] flex flex-col gap-2 pointer-events-none">
         <AnimatePresence>
           {toasts.map(t => (
             <motion.div key={t.id} initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 40 }}
@@ -123,7 +123,7 @@ export function VoltTemplate() {
           <div className="hidden md:flex gap-6 lg:gap-8 text-lg lg:text-xl font-bold tracking-wider uppercase">
             <button onClick={() => scrollTo('volt-products')} className="hover:text-[#FF6B00] transition-colors">Gear</button>
             <button onClick={() => scrollTo('volt-promo')} className="hover:text-[#FF6B00] transition-colors">Deals</button>
-            <button onClick={() => scrollTo('volt-footer')} className="hover:text-[#FF6B00] transition-colors">Contact</button>
+            <button onClick={() => scrollTo('volt-contact')} className="hover:text-[#FF6B00] transition-colors">Contact</button>
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3">
@@ -153,7 +153,7 @@ export function VoltTemplate() {
               <button onClick={() => setMenuOpen(false)}><X className="w-6 h-6" /></button>
             </div>
             {["Gear", "Deals", "Contact"].map((item, i) => (
-              <button key={i} onClick={() => scrollTo(item === "Gear" ? "volt-products" : item === "Deals" ? "volt-promo" : "volt-footer")}
+              <button key={i} onClick={() => scrollTo(item === "Gear" ? "volt-products" : item === "Deals" ? "volt-promo" : "volt-contact")}
                 className="text-left text-xl font-black uppercase py-4 border-b-2 border-zinc-200 hover:text-[#FF6B00] transition-colors">{item}</button>
             ))}
             <button onClick={() => { setMenuOpen(false); setCartOpen(true); }} className="mt-6 bg-zinc-950 text-white font-black uppercase py-3 text-lg hover:bg-[#FF6B00] transition-colors border-4 border-zinc-950">
@@ -164,9 +164,9 @@ export function VoltTemplate() {
       )}
 
       {/* Hero */}
-      <section className="pt-16 sm:pt-20 min-h-screen flex items-stretch relative overflow-hidden">
+      <section className="pt-14 sm:pt-20 min-h-[80vh] flex items-stretch relative overflow-hidden">
         <div className="absolute inset-0 bg-[#FFD600] w-1/2" style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }} />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 lg:py-28 flex flex-col lg:flex-row items-center relative z-10 w-full gap-8 sm:gap-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16 flex flex-col lg:flex-row items-center relative z-10 w-full gap-6 sm:gap-8">
           <motion.div className="flex-1 text-center lg:text-left" initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ type: "spring", stiffness: 100 }}>
             <div className="text-lg sm:text-2xl font-bold uppercase tracking-widest mb-3 sm:mb-4 inline-block bg-zinc-950 text-white px-3 sm:px-4 py-1 skew-x-[-10deg]">
               <span className="skew-x-[10deg] block">New Arrival</span>
@@ -252,6 +252,44 @@ export function VoltTemplate() {
               </button>
             </div>
             <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80" alt="Sale" className="hidden sm:block w-48 sm:w-64 lg:w-80 xl:w-96 transform rotate-12 mix-blend-luminosity hover:mix-blend-normal transition-all" />
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="volt-contact" className="bg-zinc-950 text-white py-14 sm:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto grid gap-10 lg:grid-cols-[1.3fr_0.9fr] items-center">
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-3 rounded-full border-2 border-[#FF6B00] px-4 py-2 text-sm font-bold uppercase tracking-widest text-[#FF6B00]">
+              <span>Contact</span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-black uppercase tracking-tight">Need help? Let us connect you.</h2>
+            <p className="max-w-xl text-zinc-300 text-sm sm:text-base leading-relaxed">
+              Our support team is ready to answer product questions, order updates, and shipping details. Reach out and we’ll get you the best XE Tech experience.
+            </p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-3xl border-2 border-[#FF6B00] bg-[#111111] p-6">
+                <p className="text-xs uppercase text-[#FF6B00] font-bold tracking-widest mb-3">Email Support</p>
+                <a href="mailto:help@xetech.com" className="block text-xl font-black text-white hover:text-[#FFD600] transition-colors">help@xetech.com</a>
+                <p className="mt-3 text-sm text-zinc-400">Fast replies within 1 business day.</p>
+              </div>
+              <div className="rounded-3xl border-2 border-[#FF6B00] bg-[#111111] p-6">
+                <p className="text-xs uppercase text-[#FF6B00] font-bold tracking-widest mb-3">Call Us</p>
+                <a href="tel:+2348000001234" className="block text-xl font-black text-white hover:text-[#FFD600] transition-colors">+234 800 000 1234</a>
+                <p className="mt-3 text-sm text-zinc-400">Available Mon-Sat, 9am–7pm.</p>
+              </div>
+            </div>
+          </div>
+          <div className="rounded-[2rem] border-2 border-[#FF6B00] bg-[#0f0f0f] p-8 shadow-[0_0_0_4px_rgba(255,214,0,0.15)]">
+            <p className="text-sm uppercase tracking-[0.35em] text-[#FF6B00] mb-5">Send a message</p>
+            <form className="space-y-4">
+              <input type="text" placeholder="Your name" className="w-full rounded-2xl border border-zinc-800 bg-[#141414] px-4 py-3 text-sm text-white outline-none focus:border-[#FF6B00]" />
+              <input type="email" placeholder="Your email" className="w-full rounded-2xl border border-zinc-800 bg-[#141414] px-4 py-3 text-sm text-white outline-none focus:border-[#FF6B00]" />
+              <textarea placeholder="Your message" className="w-full min-h-[140px] rounded-2xl border border-zinc-800 bg-[#141414] px-4 py-3 text-sm text-white outline-none focus:border-[#FF6B00]" />
+              <button type="submit" className="w-full rounded-2xl bg-[#FF6B00] px-6 py-4 text-sm font-black uppercase tracking-[0.1em] text-zinc-950 hover:bg-white transition-colors">
+                Send Message
+              </button>
+            </form>
           </div>
         </div>
       </section>

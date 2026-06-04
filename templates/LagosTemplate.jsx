@@ -97,7 +97,7 @@ export function LagosTemplate() {
     <div className="min-h-screen overflow-x-hidden pb-16 sm:pb-0" style={{ background: "#FAFAF5", fontFamily: "'DM Sans', sans-serif" }}>
 
       {/* Toasts */}
-      <div className="fixed top-4 right-4 z-[300] flex flex-col gap-2 pointer-events-none">
+      <div className="fixed top-6 md:top-20 right-4 z-[300] flex flex-col gap-2 pointer-events-none">
         <AnimatePresence>
           {toasts.map(t => (
             <motion.div key={t.id} initial={{ opacity: 0, x: 40, rotateY: -30 }} animate={{ opacity: 1, x: 0, rotateY: 0 }} exit={{ opacity: 0, x: 40 }}
